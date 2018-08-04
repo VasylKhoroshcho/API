@@ -10,9 +10,9 @@ const handlers = require('./handlers');
 
 module.exports = api;
 
-api.get('/images', handlers.images);
-api.get('/deleted-images', handlers.deleted);
+api.get('/images', handlers.getImages);
+// api.get('/deleted-images', handlers.deleted);
 
-api.put('/delete', handlers.delete);
+// api.put('/delete', handlers.delete);
 
-api.post('/upload-image', handlers.upload);
+// api.post('/upload-image', handlers.upload);

@@ -1,10 +1,10 @@
+const { Image } = require('../../db/models');
 
-
-exports.upload = async (req, res) => {
+exports.getImages = async (req, res) => {
   try {
+    const result = await Image.findAll();
 
-
-    return res.status(HttpStatusCodes.OK).send(payload);
+    return res.status(200).send(JSON.stringify(result));
   } catch (err) {
     return err.message;
   }

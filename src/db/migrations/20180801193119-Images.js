@@ -11,7 +11,15 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: 'other'
       },
-      url: Sequelize.STRING
+      url: Sequelize.STRING,
+      createdAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      },
+      updatedAt: {
+        allowNull: true,
+        type: Sequelize.DATE
+      }
     });
   },
   down: (queryInterface) => {
