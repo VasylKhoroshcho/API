@@ -10,7 +10,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       defaultValue: 'other'
     },
-    url: DataTypes.STRING
+    url: DataTypes.STRING,
+    deleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    }
   }, {});
 
 
