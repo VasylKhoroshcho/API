@@ -8,8 +8,13 @@ server.listen(PORT, () => console.log(`Server running on ${PORT}`));
 server.get('/', (req, res) => res.status(200).send('hello'));
 
 server.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'http://mev-gallery.herokuapp.com/');
-  res.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:3000/');
+  const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://mev-gallery.herokuapp.com'];
+  const { origin } = req.headers;
+
+  if (allowedOrigins.indexOf(origin) > -1) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
   res.setHeader('Access-Control-Allow-Credentials', true);
