@@ -3,8 +3,32 @@ language: node_js
 node_js:
   - "node"
 cache:
-  yarn: true
-before_install: npm install yarn -g
+  directories:
+    - "$HOME/google-cloud-sdk/"
+services:
+  - docker
+before_install:
+  - npm install
+  - npm install ava
+env:
+  global:
+    - PROJECT_PROD=mev-gallery
+    - CLUSTER=mev-claster
+    - ZONE=us-central1-a
+    - NODE_IMAGE=gallery
+    - NODE_DEPLOYMENT=node-deploy
+    - NODE_CONTAINER=node-container
 script:
   - npm run test
-  - npm run prod
+before_deploy:
+  - if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; export CLOUDSDK_CORE_DISABLE_PROMPTS=1; curl https://sdk.cloud.google.com | bash > /dev/null; fi
+  - source /home/travis/google-cloud-sdk/path.bash.inc
+  - gcloud components update kubectl
+  - gcloud version
+deploy:
+  - provider: script
+    script: chmod +x ./deploy-prod.sh && ./deploy-prod.sh
+    skip_cleanup: true
+    on:
+      branch: master
+
