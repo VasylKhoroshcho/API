@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon .",
+    "lint": "eslint .",
     "prod": "node_modules/.bin/sequelize db:migrate; node .",
     "test": "ava --verbose"
   },

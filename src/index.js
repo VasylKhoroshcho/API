@@ -5,8 +5,6 @@ const PORT = 1437;
 
 server.listen(PORT, () => console.log(`Server running on ${PORT}`));
 
-server.get('/', (req, res) => res.status(200).send('hello'));
-
 server.use((req, res, next) => {
   const allowedOrigins = ['http://127.0.0.1:3000', 'http://localhost:3000', 'http://mev-gallery.herokuapp.com'];
   const { origin } = req.headers;
