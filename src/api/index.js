@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
-// const upload = require('../common/upload');
+const upload = require('../utils/upload');
 
 const api = express();
 
@@ -13,8 +13,5 @@ api.use(bodyParser.urlencoded({ extended: true }));
 api.use(bodyParser.json());
 
 api.get('/images', handlers.getImages);
-// api.get('/deleted-images', handlers.deleted);
-
-api.put('/delete', handlers.deleteImage);
-
-// api.post('/upload-image', handlers.upload);
+api.delete('/delete', handlers.deleteImage);
+api.post('/upload', upload.any(), handlers.upload);

@@ -27,3 +27,13 @@ exports.deleteImage = async (req, res) => {
     return err.message;
   }
 };
+
+exports.upload = async (req, res) => {
+  try {
+    console.log(req.files);
+
+    return res.status(200).send(JSON.stringify(result));
+  } catch (err) {
+    return err.message;
+  }
+};
