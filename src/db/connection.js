@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize(process.env.DATABASE_URL);
+const sequelize = new Sequelize('postgres://user@postgres:5432/gallery');
 
 sequelize
   .authenticate()

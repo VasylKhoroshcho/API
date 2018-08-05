@@ -1,0 +1,63 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node
+spec:
+  ports:
+    - port: 1437
+      targetPort: 1437
+  selector:
+    app: node
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: node-deploy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+      - name: node-container
+        image: gcr.io/mev-gallery/gallery
+        ports:
+        - containerPort: 1437
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+spec:
+  ports:
+  - name: pgql
+    port: 5432
+    targetPort: 5432
+    protocol: TCP
+  selector:
+    app: postgres
+
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          env:
+            - name: POSTGRES_USER
+              value: user
+            - name: POSTGRES_DB
+              value: gallery
+          ports:
+            - containerPort: 5432

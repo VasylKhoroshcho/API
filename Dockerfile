@@ -8,4 +8,6 @@ RUN npm install
 
 COPY . /usr/src/galery
 
+EXPOSE 1437
+
 CMD [ "npm", "run", "prod" ]
