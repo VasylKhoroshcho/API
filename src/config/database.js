@@ -2,16 +2,17 @@ module.exports = {
   development: {
     username: 'user',
     password: null,
-    database: 'galery',
-    host: 'localhost',
-    port: '5435',
+    database: 'gallery',
+    host: 'postgres',
+    port: '5432',
     dialect: 'postgres'
   },
   production: {
-    username: '',
+    username: 'user',
     password: null,
-    database: '',
-    host: '',
+    database: 'gallery',
+    host: 'postgres',
+    port: '5432',
     dialect: 'postgres'
   }
 };
