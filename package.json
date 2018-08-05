@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "nodemon .",
-    "prod": "node .",
+    "prod": "node_modules/.bin/sequelize db:migrate; node .",
     "test": "ava --verbose"
   },
   "repository": {
