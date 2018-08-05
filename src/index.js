@@ -23,4 +23,6 @@ server.use((req, res, next) => {
   next();
 });
 
+server.use('/image', express.static(`${__dirname}/utils/upload/tmp`));
+
 server.use('/api/v1', require('./api'));

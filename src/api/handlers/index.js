@@ -30,9 +30,13 @@ exports.deleteImage = async (req, res) => {
 
 exports.upload = async (req, res) => {
   try {
-    console.log(req.files);
+    await Image.create({
+      name: req.body.name,
+      category: 'other',
+      url: `${process.env.IMAGE_URL}${req.files[0].filename}`
+    });
 
-    return res.status(200).send(JSON.stringify(result));
+    return res.status(200).send(JSON.stringify('success'));
   } catch (err) {
     return err.message;
   }

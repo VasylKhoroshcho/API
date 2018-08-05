@@ -23,6 +23,7 @@ services:
     environment:
       PORT: 1337
       DB_URL: postgres://user@database/galery
+      IMAGE_URL: http://127.0.0.1:1437/image/
 networks:
   proxy_net:
     external: true

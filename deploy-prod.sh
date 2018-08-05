@@ -21,6 +21,7 @@ kubectl config current-context
 
 kubectl set image deployment/${NODE_DEPLOYMENT} ${NODE_CONTAINER}=gcr.io/${PROJECT_PROD}/${NODE_IMAGE}:$TRAVIS_COMMIT
 kubectl set env deployment/${NODE_DEPLOYMENT} DB_URL=postgres://user@postgres:5432/gallery
+kubectl set env deployment/${NODE_DEPLOYMENT} IMAGE_URL=http://35.188.92.176/image/
 kubectl set env deployment/${NODE_DEPLOYMENT} NODE_ENV=production
 
 # sleep 30
