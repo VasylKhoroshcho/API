@@ -3,6 +3,7 @@ const { Image } = require('../../db/models');
 exports.getImages = async (req, res) => {
   try {
     const result = await Image.findAll({
+      order: [['updatedAt', 'DESC']],
       where: { deleted: false }
     });
 
