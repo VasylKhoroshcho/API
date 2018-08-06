@@ -15,15 +15,15 @@ exports.getImages = async (req, res) => {
 
 exports.deleteImage = async (req, res) => {
   try {
-    const result = await Image.findOne({
+    const image = await Image.findOne({
       where: { id: req.query.id }
     });
 
-    result.updateAttributes({
+    const result = image.updateAttributes({
       deleted: true
     });
 
-    return res.status(200).send(JSON.stringify(result));
+    return res.status(200).send(result);
   } catch (err) {
     return err.message;
   }
@@ -37,7 +37,7 @@ exports.upload = async (req, res) => {
       url: `${process.env.IMAGE_URL}${req.files[0].filename}`
     });
 
-    return res.status(200).send(JSON.stringify('success'));
+    return res.status(200).send('success');
   } catch (err) {
     return err.message;
   }
