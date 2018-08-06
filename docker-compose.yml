@@ -4,7 +4,7 @@ services:
     image: postgres:latest
     environment:
       - POSTGRES_USER=user
-      - POSTGRES_DB=galery
+      - POSTGRES_DB=gallery
     ports:
       - "5435:5432"
     networks:
