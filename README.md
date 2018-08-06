@@ -1,4 +1,4 @@
-# Bebank-api
+# API
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
@@ -10,6 +10,10 @@ You will need the following things properly installed on your computer.
 * [Git](http://git-scm.com/)
 * [Node.js](http://nodejs.org/) (with NPM)
 * [Docker](https://docs.docker.com/install/)
+
+## Deployment strategy
+
+* [Travis](https://travis-ci.org/VasylKhoroshcho/API)
 
 ## Installation
 
@@ -35,7 +39,8 @@ You will need the following things properly installed on your computer.
 
 ## Further Reading / Useful Links
 
+* [Ava](https://github.com/avajs/ava)
 * [Express](http://expressjs.com/)
 * [Sequelize](http://docs.sequelizejs.com/)
-* [Ava](https://github.com/avajs/ava)
+* [Google kubernates](https://cloud.google.com/kubernetes-engine/)
 
